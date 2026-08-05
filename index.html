@@ -3,140 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Pertempuran Makassar</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#111827;
-}
-
-iframe{
-    width:100%;
-    height:100%;
-    border:none;
-    background:white;
-}
-
-.nav{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    display:flex;
-    gap:10px;
-    z-index:9999;
-}
-
-button{
-    padding:12px 18px;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    font-size:16px;
-    background:#2563eb;
-    color:white;
-    transition:.2s;
-}
-
-button:hover{
-    background:#1d4ed8;
-}
-
-#slideIndicator{
-    position:fixed;
-    top:20px;
-    right:20px;
-    background:rgba(0,0,0,.6);
-    color:#fff;
-    padding:8px 14px;
-    border-radius:10px;
-    z-index:9999;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="slideIndicator"></div>
+<div id="presentation">
 
-<iframe id="viewer"></iframe>
+    <!-- ================= COVER ================= -->
 
-<div class="nav">
-<button onclick="prevSlide()">⬅ Prev</button>
-<button onclick="nextSlide()">Next ➜</button>
+    <section class="slide active">
+
+        <div class="slide-wrapper">
+
+            <!-- Paste SELURUH isi BODY cover.html di sini -->
+            <!-- Mulai dari <div class="slide-container"> -->
+            <!-- Sampai </div> -->
+
+        </div>
+
+    </section>
+
+    <!-- ================= LATAR BELAKANG ================= -->
+
+    <section class="slide">
+
+        <div class="slide-wrapper">
+
+        </div>
+
+    </section>
+
+    <!-- ================= KRONOLOGI ================= -->
+
+    <section class="slide">
+
+        <div class="slide-wrapper">
+
+        </div>
+
+    </section>
+
+    <!-- ================= TOKOH ================= -->
+
+    <section class="slide">
+
+        <div class="slide-wrapper">
+
+        </div>
+
+    </section>
+
+    <!-- ================= DAMPAK ================= -->
+
+    <section class="slide">
+
+        <div class="slide-wrapper">
+
+        </div>
+
+    </section>
+
+    <!-- ================= ANALISIS ================= -->
+
+    <section class="slide">
+
+        <div class="slide-wrapper">
+
+        </div>
+
+    </section>
+
+    <!-- ================= KESIMPULAN ================= -->
+
+    <section class="slide">
+
+        <div class="slide-wrapper">
+
+        </div>
+
+    </section>
+
+    <!-- ================= PENUTUP ================= -->
+
+    <section class="slide">
+
+        <div class="slide-wrapper">
+            <div class="slide-container">
+
+        </div>
+
+    </section>
+
 </div>
 
-<script>
+<!-- ================= UI ================= -->
 
-const slides=[
-"slides/cover.html",
-"slides/latar-belakang.html",
-"slides/kronologi.html",
-"slides/tokoh.html",
-"slides/dampak.html",
-"slides/analisis.html",
-"slides/kesimpulan.html",
-"slides/penutup.html"
-];
+<div id="progress"></div>
 
-let current=0;
+<div class="controls">
 
-const viewer=document.getElementById("viewer");
+    <button id="prev">
+        ◀
+    </button>
 
-function loadSlide(){
-    viewer.src=slides[current];
-    document.getElementById("slideIndicator").innerHTML=
-    (current+1)+" / "+slides.length;
-}
+    <div id="counter">
+        1 / 8
+    </div>
 
-function nextSlide(){
-    if(current<slides.length-1){
-        current++;
-        loadSlide();
-    }
-}
+    <button id="fullscreen">
+        ⛶
+    </button>
 
-function prevSlide(){
-    if(current>0){
-        current--;
-        loadSlide();
-    }
-}
+    <button id="next">
+        ▶
+    </button>
 
-document.addEventListener("keydown",(e)=>{
+</div>
 
-if(e.key==="ArrowRight" || e.key===" "){
-nextSlide();
-}
-
-if(e.key==="ArrowLeft"){
-prevSlide();
-}
-
-if(e.key==="Home"){
-current=0;
-loadSlide();
-}
-
-if(e.key==="End"){
-current=slides.length-1;
-loadSlide();
-}
-
-});
-
-loadSlide();
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
